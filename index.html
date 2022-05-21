@@ -1,0 +1,86 @@
+<!-- ref -->
+<!-- https://codepen.io/kalpeshsingh/pen/wMNpLp -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Latihan Membuat Calculator Menggunakan Javascript</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <div class="container">
+        <div class="calc-body">
+          <div class="calc-screen">
+            <div class="calc-operation">2536 + 419 + </div>
+            <div class="calc-typed">
+              <span class="blink-me">_</span>
+            </div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button c" data-action="c" data-target="">C</div>
+            <div class="button l" data-action="!=" data-target="">≠</div>
+            <div class="button l" data-action="%" data-target="">%</div>
+            <div class="button l" data-action="/" data-target="">/</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" data-action="" data-target="7">7</div>
+            <div class="button" data-action="" data-target="8">8</div>
+            <div class="button" data-action="" data-target="9">9</div>
+            <div class="button l" data-action="x" data-target="">x</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" data-action="" data-target="4">4</div>
+            <div class="button" data-action="" data-target="5">5</div>
+            <div class="button" data-action="" data-target="6">6</div>
+            <div class="button l" data-action="-" data-target="">−</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" data-action="" data-target="1">1</div>
+            <div class="button" data-action="" data-target="2">2</div>
+            <div class="button" data-action="" data-target="3">3</div>
+            <div class="button l" data-action="+" data-target="">+</div>
+          </div>
+          <div class="calc-button-row">
+            <div class="button" data-action="" data-target=".">
+              .
+            </div>
+            <div class="button" data-action="" data-target="0">
+              0
+            </div>
+            <div class="button" data-action="<" data-target="">
+              <
+            </div>
+            <div class="button l" data-action="=" data-target="">
+              =
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+  /*========================================
+  Project Name: PureCalc
+  Version: 1.0
+  Author: Kalpesh Singh
+  Inspired From: dribbble.com/oneMoreArray =======================================*/
+  function blinker() {
+      $('.blink-me').fadeOut(200);
+      $('.blink-me').fadeIn(200);
+  }
+  setInterval(blinker, 500);
+
+  // code calculator
+  $('.button').click(function() {
+    var getAction = $(this).attr("data-action");
+    var getValue = $(this).attr("data-target");
+    var num = "" + getValue;
+    if(getValue){
+      console.log(num);
+    }
+  });
+</script>
+</html>
