@@ -62,6 +62,7 @@
     transition: all 0.2s ease-in-out;
     /* tambahan */
     cursor:pointer;
+    border: none;
   }
   
   .button.l {
