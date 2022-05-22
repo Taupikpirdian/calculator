@@ -79,8 +79,6 @@ class Calculator {
         }else{
             this.currentOperand = -Math.abs(this.currentOperand)
         }
-
-        console.log(this.currentOperand)
     }
 
     delete(){
@@ -88,7 +86,12 @@ class Calculator {
     }
 
     updateDisplay(){
-        $('.calc-typed').html(this.currentOperand);
+        if(this.currentOperand){
+            $('.calc-typed').html(this.currentOperand);
+        }else{
+            $('.calc-typed').html(`<span class="blink-me">_</span>`)
+        }
+
         if(this.operation != null){
             $('.calc-operation').html(
                 `${this.previousOperand} ${this.operation} ${this.currentOperand}`
