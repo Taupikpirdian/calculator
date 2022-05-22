@@ -21,6 +21,7 @@ class Calculator {
         this.previousOperand = ''
         this.operation = undefined
         $('.calc-typed').html(`<span class="blink-me">_</span>`)
+        $('.calc-operation').html('')
     }
 
     appendNumber(number){
@@ -42,7 +43,6 @@ class Calculator {
     }
 
     compute(){
-        console.log(this.operation)
         let computation
         const prev = parseFloat(this.previousOperand)
         const current = parseFloat(this.currentOperand)
@@ -54,11 +54,14 @@ class Calculator {
             case '-':
                 computation = prev - current
                 break
-            case '*':
+            case 'x':
                 computation = prev * current
                 break
             case '/':
                 computation = prev / current
+                break
+            case '%':
+                computation = prev % current
                 break
             default:
                 return
@@ -73,7 +76,7 @@ class Calculator {
         $('.calc-typed').html(this.currentOperand);
         if(this.operation != null){
             $('.calc-operation').html(
-                `${this.previousOperand} ${this.operation}`
+                `${this.previousOperand} ${this.operation} ${this.currentOperand}`
             );
         }
     }
