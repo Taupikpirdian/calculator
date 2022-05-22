@@ -72,6 +72,21 @@ class Calculator {
         this.previousOperand = ''
     }
 
+    manipulate(){
+        this.currentOperand
+        if(this.currentOperand < 0){
+            this.currentOperand = Math.abs(this.currentOperand)
+        }else{
+            this.currentOperand = -Math.abs(this.currentOperand)
+        }
+
+        console.log(this.currentOperand)
+    }
+
+    delete(){
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+    }
+
     updateDisplay(){
         $('.calc-typed').html(this.currentOperand);
         if(this.operation != null){
@@ -86,6 +101,8 @@ const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalButtons = document.querySelectorAll('[data-equals]')
 const clearButtons = document.querySelectorAll('[data-clear]')
+const deleteButtons = document.querySelectorAll('[data-delete]')
+const manipulateButtons = document.querySelectorAll('[data-manipulate]')
 
 const previousOperantTextElement = document.querySelectorAll('[data-previous-operand]')
 const currentOperantTextElement = document.querySelectorAll('[data-current-operand]')
@@ -114,6 +131,20 @@ operationButtons.forEach(button => {
 equalButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.compute()
+        calculator.updateDisplay()
+    })
+})
+
+manipulateButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.manipulate()
+        calculator.updateDisplay()
+    })
+})
+
+deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.delete()
         calculator.updateDisplay()
     })
 })
